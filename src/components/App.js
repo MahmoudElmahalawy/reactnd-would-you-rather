@@ -17,7 +17,7 @@ function App({ dispatch, authedUser, users, loadingBar }) {
 	}, [dispatch]);
 
 	return (
-		<>
+		<BrowserRouter>
 			<Navbar />
 			{loadingBar.default === 1 ? (
 				<LoadingBar
@@ -27,14 +27,12 @@ function App({ dispatch, authedUser, users, loadingBar }) {
 					progressIncrease={10}
 				/>
 			) : (
-				<BrowserRouter>
-					<Routes>
-						<Route exact path="/" element={authedUser ? <Home /> : <Login />} />
-						{/* <Route exact path="/search" element={<Search />} /> */}
-					</Routes>
-				</BrowserRouter>
+				<Routes>
+					<Route exact path="/" element={authedUser ? <Home /> : <Login />} />
+					{/* <Route exact path="/search" element={<Search />} /> */}
+				</Routes>
 			)}
-		</>
+		</BrowserRouter>
 	);
 }
 
