@@ -1,4 +1,5 @@
 import { _getQuestions, _saveQuestion, _saveQuestionAnswer, _getUsers } from "../../utils/_DATA";
+
 import { loadQuestions } from "./questions";
 import { loadUsers } from "./users";
 import { setAuthedUser } from "./authedUser";
@@ -58,8 +59,8 @@ export const handleSubmitAnswer = (authedUser, qid, answer) => {
 	return (dispatch, getState) => {
 		dispatch(showLoading());
 		_saveQuestionAnswer({ authedUser, qid, answer }).then((savedAnswer) => {
-			dispatch(submitAnswer(authedUser, qid, answer));
 			const { users } = getState();
+			dispatch(submitAnswer(authedUser, qid, answer));
 			dispatch(setAuthedUser(users[authedUser]));
 			dispatch(hideLoading());
 		});
