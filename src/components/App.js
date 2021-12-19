@@ -1,14 +1,17 @@
 import React, { useEffect } from "react";
 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import { connect } from "react-redux";
 import { loadUsersData } from "../redux/actions/shared";
 
 import Navbar from "./Navbar";
-import Login from "./Login";
+import Login from "../screens/Login";
+import Home from "../screens/Home";
 
 import LoadingBar from "react-redux-loading";
 
-function App({ dispatch, users, loadingBar }) {
+function App({ dispatch, authedUser, users, loadingBar }) {
 	useEffect(() => {
 		dispatch(loadUsersData());
 	}, [dispatch]);
@@ -24,14 +27,18 @@ function App({ dispatch, users, loadingBar }) {
 					progressIncrease={10}
 				/>
 			) : (
-				<Login />
+				<BrowserRouter>
+					<Routes>
+						<Route exact path="/" element={authedUser ? <Home /> : <Login />} />
+						{/* <Route exact path="/search" element={<Search />} /> */}
+					</Routes>
+				</BrowserRouter>
 			)}
 		</>
 	);
 }
 
-export default connect(({ authedUser, users, loadingBar }) => ({
+export default connect(({ authedUser, loadingBar }) => ({
 	authedUser,
-	users,
 	loadingBar,
 }))(App);
