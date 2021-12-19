@@ -5,11 +5,12 @@ import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import AnsweredQuestion from "../../components/Question/AnsweredQuestion";
 import UnansweredQuestion from "../../components/Question/UnansweredQuestion";
+import NotFound from "../NotFound";
 
 const QuestionDetails = ({ questions, users, authedUser }) => {
 	const { questionId } = useParams();
 	const question = questions[questionId];
-	if (!question) return <div>error not found</div>;
+	if (!question) return <NotFound />;
 
 	return (
 		<>

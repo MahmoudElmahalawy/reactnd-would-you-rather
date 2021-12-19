@@ -1,7 +1,7 @@
 import { LOAD_QUESTIONS } from "../actions/questions";
 import { CREATE_QUESTION, SUBMIT_ANSWER } from "../actions/shared";
 
-export default function questions(state = {}, action) {
+export const questions = (state = {}, action) => {
 	switch (action.type) {
 		case LOAD_QUESTIONS:
 			return {
@@ -28,4 +28,4 @@ export default function questions(state = {}, action) {
 		default:
 			return state;
 	}
-}
+};

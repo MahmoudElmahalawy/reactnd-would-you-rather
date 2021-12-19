@@ -1,20 +1,19 @@
 import React, { useState } from "react";
 
 import { connect } from "react-redux";
-import { setAuthedUser } from "../redux/actions/authedUser";
-import { loadQuestionsData } from "../redux/actions/shared";
+import { setAuthedUser } from "../../redux/actions/authedUser";
+import { loadQuestionsData } from "../../redux/actions/shared";
 
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-
 import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import MenuItem from "@mui/material/MenuItem";
+import Typography from "@mui/material/Typography";
 
 const Login = ({ dispatch, users }) => {
 	const [selectedUser, setSelectedUser] = useState("");
@@ -46,7 +45,6 @@ const Login = ({ dispatch, users }) => {
 					<img width="300" src="/assets/images/misc/logo.png" alt="App Logo" loading="lazy" />
 				</Box>
 
-				{/* <SelectUser setSelectedUser={setSelectedUser} /> */}
 				<FormControl fullWidth>
 					<InputLabel id="user-select-label">Select User</InputLabel>
 					<Select

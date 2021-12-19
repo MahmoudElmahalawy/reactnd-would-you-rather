@@ -1,7 +1,7 @@
 import { LOAD_USERS } from "../actions/users";
 import { CREATE_QUESTION, SUBMIT_ANSWER } from "../actions/shared";
 
-export default function users(state = {}, action) {
+export const users = (state = {}, action) => {
 	switch (action.type) {
 		case LOAD_USERS:
 			return {
@@ -31,4 +31,4 @@ export default function users(state = {}, action) {
 		default:
 			return state;
 	}
-}
+};

@@ -8,7 +8,7 @@ import { showLoading, hideLoading } from "react-redux-loading";
 export const CREATE_QUESTION = "CREATE_QUESTION";
 export const SUBMIT_ANSWER = "SUBMIT_ANSWER";
 
-export function loadQuestionsData() {
+export const loadQuestionsData = () => {
 	return (dispatch) => {
 		dispatch(showLoading());
 		_getQuestions().then((questions) => {
@@ -16,9 +16,9 @@ export function loadQuestionsData() {
 			dispatch(hideLoading());
 		});
 	};
-}
+};
 
-export function loadUsersData() {
+export const loadUsersData = () => {
 	return (dispatch) => {
 		dispatch(showLoading());
 		_getUsers().then((users) => {
@@ -26,16 +26,16 @@ export function loadUsersData() {
 			dispatch(hideLoading());
 		});
 	};
-}
+};
 
-export function createQuestion(question) {
+export const createQuestion = (question) => {
 	return {
 		type: CREATE_QUESTION,
 		question,
 	};
-}
+};
 
-export function handleCreateQuestion(question) {
+export const handleCreateQuestion = (question) => {
 	return (dispatch) => {
 		dispatch(showLoading());
 		_saveQuestion(question).then((savedQuestion) => {
@@ -43,18 +43,18 @@ export function handleCreateQuestion(question) {
 			dispatch(hideLoading());
 		});
 	};
-}
+};
 
-export function submitAnswer(authedUser, qid, answer) {
+export const submitAnswer = (authedUser, qid, answer) => {
 	return {
 		type: SUBMIT_ANSWER,
 		authedUser,
 		qid,
 		answer,
 	};
-}
+};
 
-export function handleSubmitAnswer(authedUser, qid, answer) {
+export const handleSubmitAnswer = (authedUser, qid, answer) => {
 	return (dispatch, getState) => {
 		dispatch(showLoading());
 		_saveQuestionAnswer({ authedUser, qid, answer }).then((savedAnswer) => {
@@ -64,4 +64,4 @@ export function handleSubmitAnswer(authedUser, qid, answer) {
 			dispatch(hideLoading());
 		});
 	};
-}
+};
