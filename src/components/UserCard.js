@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 
-export const UserCard = ({ userInfo, rankStyle }) => {
+const UserCard = ({ userInfo, rankStyle }) => {
 	const { name, avatar, answersCount, questionsCount } = userInfo;
 
 	return (
@@ -38,3 +38,5 @@ export const UserCard = ({ userInfo, rankStyle }) => {
 		</Grid>
 	);
 };
+
+export default UserCard;
