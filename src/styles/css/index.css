@@ -35,3 +35,31 @@ code {
 		text-align: center;
 	}
 }
+
+.option {
+	margin: 1rem 0;
+	padding: 1rem;
+	border: 1px solid #7772;
+	border-radius: 5px;
+}
+
+.selected-option {
+	position: relative;
+	background-color: rgba(25, 118, 210, 0.15);
+	border: 1px solid #1976d2;
+}
+
+.selected-option::before {
+	content: "Your Vote";
+	position: absolute;
+	width: 50px;
+	top: -25px;
+	right: -20px;
+	padding: 5px;
+	font-size: 0.9em;
+	font-weight: bold;
+	text-align: center;
+	color: #ddd;
+	background-color: #1976d2;
+	border-radius: 50%;
+}
