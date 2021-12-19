@@ -56,10 +56,31 @@ code {
 	top: -25px;
 	right: -20px;
 	padding: 5px;
+	text-align: center;
 	font-size: 0.9em;
 	font-weight: bold;
-	text-align: center;
-	color: #ddd;
+	color: #eee;
 	background-color: #1976d2;
 	border-radius: 50%;
+}
+
+.rank {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50px;
+	aspect-ratio: 1;
+	border-radius: 50%;
+}
+
+.rank-1 {
+	background-color: #ddb73a;
+}
+
+.rank-2 {
+	background-color: #c0c0c0;
+}
+
+.rank-3 {
+	background-color: #cd7f32;
 }
