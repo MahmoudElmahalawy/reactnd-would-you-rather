@@ -33,7 +33,7 @@ function App({ dispatch, authedUser, loadingBar }) {
 			) : (
 				<Routes>
 					<Route exact path="/" element={authedUser ? <Home /> : <Login />} />
-					<Route exact path="/questions/create" element={authedUser ? <NewQuestion /> : <Login />} />
+					<Route exact path="/add" element={authedUser ? <NewQuestion /> : <Login />} />
 					<Route exact path="/leaderboard" element={authedUser ? <Leaderboard /> : <Login />} />
 					<Route exact path="/questions/:questionId" element={authedUser ? <QuestionDetails /> : <Login />} />
 					<Route exact path="*" element={authedUser ? <NotFound /> : <Login />} />
