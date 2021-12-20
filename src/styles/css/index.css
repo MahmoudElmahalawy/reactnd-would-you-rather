@@ -53,6 +53,7 @@ code {
 	content: "Your Vote";
 	position: absolute;
 	width: 50px;
+	height: 50px;
 	top: -25px;
 	right: -20px;
 	padding: 5px;
