@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import { connect } from "react-redux";
 import { unsetAuthedUser } from "../redux/actions/authedUser";
@@ -21,6 +22,7 @@ import Logout from "@mui/icons-material/Logout";
 const Navbar = ({ dispatch, authedUser }) => {
 	const [value, setValue] = useState(0);
 	const [anchorEl, setAnchorEl] = useState(null);
+	const [location, setLocation] = useState(useLocation());
 
 	const open = Boolean(anchorEl);
 
@@ -35,6 +37,22 @@ const Navbar = ({ dispatch, authedUser }) => {
 		dispatch(unsetAuthedUser());
 		handleClose();
 	};
+
+	useEffect(() => {
+		switch (location.pathname) {
+			case "/":
+				setValue(0);
+				break;
+			case "/add":
+				setValue(1);
+				break;
+			case "/leaderboard":
+				setValue(2);
+				break;
+			default:
+				setValue(0);
+		}
+	}, [location]);
 
 	return (
 		<nav
@@ -64,7 +82,7 @@ const Navbar = ({ dispatch, authedUser }) => {
 				<NavigationAction
 					sx={{ minWidth: "fit-content" }}
 					component={Link}
-					to="/questions/create"
+					to="/add"
 					label="New Question"
 					icon={<AddCommentIcon />}
 				/>
