@@ -59,8 +59,8 @@ export const handleSubmitAnswer = (authedUser, qid, answer) => {
 	return (dispatch, getState) => {
 		dispatch(showLoading());
 		_saveQuestionAnswer({ authedUser, qid, answer }).then((savedAnswer) => {
-			const { users } = getState();
 			dispatch(submitAnswer(authedUser, qid, answer));
+			const { users } = getState();
 			dispatch(setAuthedUser(users[authedUser]));
 			dispatch(hideLoading());
 		});
