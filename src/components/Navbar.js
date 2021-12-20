@@ -19,7 +19,7 @@ import LeaderboardIcon from "@mui/icons-material/Leaderboard";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Logout from "@mui/icons-material/Logout";
 
-const Navbar = ({ dispatch, authedUser }) => {
+const Navbar = ({ dispatch, users, authedUser }) => {
 	const [value, setValue] = useState(0);
 	const [anchorEl, setAnchorEl] = useState(null);
 	const [location, setLocation] = useState(useLocation());
@@ -52,7 +52,7 @@ const Navbar = ({ dispatch, authedUser }) => {
 			default:
 				setValue(0);
 		}
-	}, [location]);
+	}, [location, users]);
 
 	return (
 		<nav
@@ -132,6 +132,7 @@ const Navbar = ({ dispatch, authedUser }) => {
 	);
 };
 
-export default connect(({ authedUser }) => ({
+export default connect(({ users, authedUser }) => ({
+	users,
 	authedUser,
 }))(Navbar);
