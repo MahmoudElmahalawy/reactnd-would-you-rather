@@ -28,7 +28,7 @@ const UnansweredQuestion = ({ dispatch, question, author, authedUser }) => {
 				md={12}
 			>
 				<Typography component="div">
-					<span style={{ fontWeight: "bold" }}>{author.name}</span> asks:
+					<span style={{ fontWeight: "bold", paddingLeft: "1rem" }}>{author.name}</span> asks:
 				</Typography>
 			</Grid>
 			<Grid sx={{ borderRight: "1px solid #7772", padding: "0.5rem 0" }} align="center" item xs={4} md={4}>
