@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import QuestionCard from "./QuestionCard";
 
 const QuestionsList = ({ users, questions }) => {
+	questions?.sort((a, b) => b.timestamp - a.timestamp);
+
 	return (
 		<>
 			{questions?.length > 0 ? (
